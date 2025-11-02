@@ -8,6 +8,7 @@ import BookingForm from '@/components/BookingForm';
 import FlatOffer from '@/components/FlatOffer';
 import DealsAndOffers from '@/components/DealsAndOffers';
 import PromoCarousel from '@/components/PromoCarousel';
+import ExtraordinaryCarousel from '@/components/ExtraordinaryCarousel';
 import ExploreWorld from '@/components/ExploreWorld';
 import FAQSection from '@/components/sections/FAQ/FAQSection';
 import GallerySection from '@/components/sections/FAQ/GallerySection';
@@ -854,6 +855,9 @@ export default function Home() {
 
           {/* Promo Carousel Section */}
           <PromoCarousel />
+
+          {/* Extraordinary Carousel Section */}
+          <ExtraordinaryCarousel />
 
           {/* Phoenix Fly Blogs Section */}
           <PhoenixFlyBlogsSection />
