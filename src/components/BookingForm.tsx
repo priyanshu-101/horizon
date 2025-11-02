@@ -489,20 +489,44 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
   if (showTabsOnly) {
     return (
       <div 
-        className='w-full' 
+        className='w-full relative' 
         style={{ 
-          background: 'linear-gradient(to bottom, rgba(206, 221, 231, 0.6) 0%, rgba(206, 221, 231, 0.8) 100%)',
-          backdropFilter: 'blur(0.2px)',
           borderRadius: '16px 16px 20px 20px',
           borderTopLeftRadius: '16px',
           borderTopRightRadius: '16px',
           overflow: 'hidden',
           paddingLeft: '16px',
           paddingRight: '16px',
+          position: 'relative',
         }}
       >
-        {/* Navigation Tabs */}
-        <div className='overflow-x-auto scrollbar-hide' style={{ paddingTop: '0' }}>
+        {/* Background Image */}
+        <div
+          className='absolute inset-0'
+          style={{
+            backgroundImage: 'url(/img/home-bg.jpg)',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            zIndex: 0,
+            borderRadius: '16px 16px 20px 20px',
+          }}
+        />
+        {/* Background Overlay */}
+        <div
+          className='absolute inset-0'
+          style={{
+            background: 'linear-gradient(to bottom, rgba(206, 221, 231, 0.6) 0%, rgba(206, 221, 231, 0.8) 100%)',
+            backdropFilter: 'blur(0.2px)',
+            zIndex: 1,
+            borderRadius: '16px 16px 20px 20px',
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Content wrapper */}
+        <div className='relative z-10'>
+          {/* Navigation Tabs */}
+          <div className='overflow-x-auto scrollbar-hide' style={{ paddingTop: '0' }}>
           <div className='flex gap-4 min-w-max' style={{ paddingBottom: '0' }}>
             {tabs.map((tab, index) => {
               const isActive = activeTab === tab.id;
@@ -593,6 +617,7 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
             );
           })()}
         </div>
+        </div>
       </div>
     );
   }
@@ -601,7 +626,7 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
     <>
       {/* Booking Form Section */}
       <div
-        className='w-full bg-cover bg-center bg-no-repeat shadow-3xl mt-2'
+        className='w-full shadow-3xl mt-2 relative'
         style={{
           borderRadius: '16px',
           borderTopLeftRadius: '16px',
@@ -609,10 +634,34 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
           overflow: 'hidden',
           paddingLeft: '32px',
           paddingRight: '32px',
+          position: 'relative',
         }}
       >
+        {/* Background Image */}
+        <div
+          className='absolute inset-0'
+          style={{
+            backgroundImage: 'url(/img/home-bg.jpg)',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            zIndex: 0,
+            borderRadius: '16px',
+          }}
+        />
         {/* Background overlay */}
-        <div className='h-full'>
+        <div
+          className='absolute inset-0'
+          style={{
+            background: 'linear-gradient(to bottom, rgba(206, 221, 231, 0.6) 0%, rgba(206, 221, 231, 0.8) 100%)',
+            backdropFilter: 'blur(0.2px)',
+            zIndex: 1,
+            borderRadius: '16px',
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Content wrapper */}
+        <div className='h-full relative z-10'>
           {/* Navigation Tabs */}
           <div className='overflow-x-auto scrollbar-hide' style={{ paddingTop: '0' }}>
             <div className='flex gap-4 min-w-max' style={{ paddingBottom: '0' }}>

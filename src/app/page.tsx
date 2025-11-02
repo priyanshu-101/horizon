@@ -24,6 +24,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
   const [currentMobilePage, setCurrentMobilePage] = useState('hero'); // 'hero' or 'booking'
+  const [windowWidth, setWindowWidth] = useState(0);
   const texts = ['DISCOVER', 'EXPLORE', 'TRAVEL'];
 
   // Hydration check
@@ -36,7 +37,9 @@ export default function Home() {
     if (!isHydrated) return;
 
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      const width = window.innerWidth;
+      setWindowWidth(width);
+      setIsMobile(width < 768);
     };
 
     checkMobile();
@@ -47,7 +50,9 @@ export default function Home() {
   // Prevent hydration mismatch by ensuring consistent initial state
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setIsMobile(window.innerWidth < 768);
+      const width = window.innerWidth;
+      setWindowWidth(width);
+      setIsMobile(width < 768);
     }
   }, []);
 
@@ -140,13 +145,17 @@ export default function Home() {
           style={{
             backgroundImage: 'url(/img/home-bg.jpg)',
             width: '100%',
-            height: '800px',
+            height: '100%',
+            minHeight: '500px',
+            maxHeight: '800px',
             top: '0',
             left: '0',
+            right: '0',
+            bottom: '0',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
-            zIndex: 1,
+            zIndex: 0,
             borderRadius: '20px 20px 0 0',
           }}
         />
@@ -158,7 +167,8 @@ export default function Home() {
             backgroundPosition: 'center center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundAttachment: 'fixed',
+            backgroundAttachment: (windowWidth >= 1024 && windowWidth > 0) ? 'fixed' : 'scroll',
+            zIndex: 0,
           }}
         />
       )}
@@ -169,18 +179,23 @@ export default function Home() {
           className='absolute'
           style={{
             width: '100%',
-            height: '800px',
+            height: '100%',
+            minHeight: '500px',
+            maxHeight: '800px',
             top: '0',
             left: '0',
-            zIndex: 2,
+            right: '0',
+            bottom: '0',
+            zIndex: 1,
             borderRadius: '20px 20px 0 0',
             background:
               'linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.4) 70%, rgba(255, 255, 255, 0.6) 100%)',
             backdropFilter: 'blur(0.2px)',
+            pointerEvents: 'none',
           }}
         />
       ) : (
-        <div className='absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/30'></div>
+        <div className='absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/30 z-[1] pointer-events-none'></div>
       )}
 
       {/* Content wrapper with relative positioning */}
@@ -620,17 +635,30 @@ export default function Home() {
 
         {/* Hero Section */}
         <main
-          className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ${isMobile ? 'flex flex-col justify-start pt-50' : 'py-10 md:py-26'} w-full`}
-          style={
-            isMobile
-              ? {
-                  height: '800px',
-                  minHeight: '800px',
-                  position: 'relative',
-                  zIndex: 10,
-                }
-              : {}
-          }
+          className={`max-w-6xl mx-auto w-full ${isMobile ? 'flex flex-col justify-start' : ''}`}
+          style={{
+            padding: isMobile 
+              ? '60px 16px 20px 16px' 
+              : (windowWidth >= 1536 
+                ? '120px 32px 40px 32px' 
+                : windowWidth >= 1280 
+                  ? '100px 24px 40px 24px' 
+                  : windowWidth >= 1024 
+                    ? '80px 24px 32px 24px' 
+                    : windowWidth >= 768 
+                      ? '60px 20px 32px 20px' 
+                      : windowWidth > 0 ? '40px 16px 24px 16px' : '80px 24px 32px 24px'),
+            height: 'auto',
+            minHeight: isMobile 
+              ? '500px' 
+              : (windowWidth >= 1024 
+                ? '600px' 
+                : windowWidth >= 768 
+                  ? '500px' 
+                  : windowWidth > 0 ? '400px' : '600px'),
+            position: 'relative',
+            zIndex: 10,
+          }}
         >
           {/* Mobile Back Button */}
           {isMobile && (
@@ -655,7 +683,17 @@ export default function Home() {
                 fontFamily: isMobile
                   ? 'var(--font-gilroy-semibold)'
                   : 'var(--font-gilroy-bold)',
-                fontSize: isMobile ? '14px' : '18px',
+                fontSize: isMobile 
+                  ? '12px' 
+                  : (windowWidth >= 1536 
+                    ? '22px' 
+                    : windowWidth >= 1280 
+                      ? '20px' 
+                      : windowWidth >= 1024 
+                        ? '18px' 
+                        : windowWidth >= 768 
+                          ? '16px' 
+                          : windowWidth > 0 ? '14px' : '18px'),
                 fontWeight: isMobile ? 400 : 700,
                 fontStyle: 'normal',
                 lineHeight: '100%',
@@ -664,7 +702,10 @@ export default function Home() {
                 color: '#FFFFFF',
                 textAlign: 'center',
                 display: 'block',
-                marginLeft: isMobile ? '-6px' : '30px',
+                marginLeft: isMobile ? '0' : (windowWidth >= 1024 ? '30px' : '0'),
+                marginTop: isMobile ? '60px' : (windowWidth >= 1024 ? '0' : '20px'),
+                paddingLeft: isMobile ? '16px' : '0',
+                paddingRight: isMobile ? '16px' : '0',
               }}
             >
               One adventure at a time
@@ -674,16 +715,16 @@ export default function Home() {
             <div
               className='relative overflow-hidden w-full flex justify-center'
               style={{
-                height: isMobile ? '100px' : '120px',
+                height: isMobile ? '60px' : (windowWidth >= 1024 ? '140px' : windowWidth >= 768 ? '100px' : windowWidth > 0 ? '80px' : '120px'),
                 opacity: 1,
-                padding: isMobile ? '0' : '10px',
-                marginTop: isMobile ? '-6px' : '32px',
+                padding: isMobile ? '0' : (windowWidth >= 1024 ? '10px' : '8px'),
+                marginTop: isMobile ? '8px' : (windowWidth >= 1024 ? '32px' : windowWidth >= 768 ? '24px' : windowWidth > 0 ? '16px' : '24px'),
               }}
             >
               <div
                 className='absolute flex items-center justify-center w-full'
                 style={{
-                  transform: isMobile ? 'scale(0.5)' : 'scale(1)',
+                  transform: 'scale(1)',
                   transformOrigin: 'center',
                 }}
               >
@@ -694,11 +735,21 @@ export default function Home() {
                     color: '#F2F4F6',
                     fontFamily: 'var(--font-gilroy-bold)',
                     fontWeight: 700,
-                    fontSize: '140px',
+                    fontSize: isMobile 
+                      ? '48px' 
+                      : (windowWidth >= 1536 
+                        ? '180px' 
+                        : windowWidth >= 1280 
+                          ? '160px' 
+                          : windowWidth >= 1024 
+                            ? '140px' 
+                            : windowWidth >= 768 
+                              ? '100px' 
+                              : windowWidth > 0 ? '80px' : '140px'),
                     lineHeight: '1',
                     letterSpacing: '2%',
                     textTransform: 'uppercase',
-                    WebkitTextStroke: '2px #F2F4F6',
+                    WebkitTextStroke: isMobile ? '1px #F2F4F6' : '2px #F2F4F6',
                     WebkitTextFillColor: '#F2F4F6',
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                     textAlign: 'center',
