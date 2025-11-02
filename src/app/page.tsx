@@ -10,6 +10,7 @@ import DealsAndOffers from '@/components/DealsAndOffers';
 import PromoCarousel from '@/components/PromoCarousel';
 import ExtraordinaryCarousel from '@/components/ExtraordinaryCarousel';
 import WeOfferTheBest from '@/components/WeOfferTheBest';
+import HowItWorks from '@/components/HowItWorks';
 import ExploreWorld from '@/components/ExploreWorld';
 import FAQSection from '@/components/sections/FAQ/FAQSection';
 import GallerySection from '@/components/sections/FAQ/GallerySection';
@@ -862,6 +863,9 @@ export default function Home() {
 
           {/* We Offer The Best Section */}
           <WeOfferTheBest />
+
+          {/* How It Works Section */}
+          <HowItWorks />
 
           {/* Phoenix Fly Blogs Section */}
           <PhoenixFlyBlogsSection />
