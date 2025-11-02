@@ -6,7 +6,7 @@ export default function WeOfferTheBest() {
   return (
     <div className='w-full py-8 md:py-12 lg:py-16'>
       <div className='max-w-7xl mx-auto px-4 md:px-8 lg:px-16'>
-        <div className='relative w-full' style={{ aspectRatio: '16/9', minHeight: '400px' }}>
+        <div className='relative w-full' style={{ aspectRatio: '16/9', minHeight: '600px' }}>
           <Image
             src='/services.png'
             alt='We offer the Best - Services'
