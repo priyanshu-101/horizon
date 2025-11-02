@@ -498,31 +498,8 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
           position: 'relative',
         }}
       >
-        {/* Background Image */}
-        <div
-          className='absolute inset-0'
-          style={{
-            backgroundImage: 'url(/img/home-bg.jpg)',
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            zIndex: 0,
-            borderRadius: '0',
-          }}
-        />
-        {/* Background Overlay */}
-        <div
-          className='absolute inset-0'
-          style={{
-            background: 'linear-gradient(to bottom, rgba(206, 221, 231, 0.6) 0%, rgba(206, 221, 231, 0.8) 100%)',
-            backdropFilter: 'blur(0.2px)',
-            zIndex: 1,
-            borderRadius: '0',
-            pointerEvents: 'none',
-          }}
-        />
         {/* Content wrapper */}
-        <div className='relative z-10'>
+        <div className='relative'>
           {/* Navigation Tabs */}
           <div className='overflow-x-auto scrollbar-hide' style={{ paddingTop: '0' }}>
           <div className='flex gap-4 min-w-max' style={{ paddingBottom: '0' }}>
@@ -635,31 +612,8 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
           position: 'relative',
         }}
       >
-        {/* Background Image */}
-        <div
-          className='absolute inset-0'
-          style={{
-            backgroundImage: 'url(/img/home-bg.jpg)',
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            zIndex: 0,
-            borderRadius: '16px',
-          }}
-        />
-        {/* Background overlay */}
-        <div
-          className='absolute inset-0'
-          style={{
-            background: 'linear-gradient(to bottom, rgba(206, 221, 231, 0.6) 0%, rgba(206, 221, 231, 0.8) 100%)',
-            backdropFilter: 'blur(0.2px)',
-            zIndex: 1,
-            borderRadius: '16px',
-            pointerEvents: 'none',
-          }}
-        />
         {/* Content wrapper */}
-        <div className='h-full relative z-10'>
+        <div className='h-full'>
           {/* Navigation Tabs */}
           <div className='overflow-x-auto scrollbar-hide' style={{ paddingTop: '0' }}>
             <div className='flex gap-4 min-w-max' style={{ paddingBottom: '0' }}>
