@@ -259,16 +259,21 @@ export default function TopBudgetFriendlyHotels() {
             ))}
           </div>
 
-          {/* Navigation Arrow */}
+          {/* Right Arrow Button */}
           {currentIndex < maxIndex && (
             <button
               onClick={handleNext}
-              className='absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-orange-500 transition-all duration-200 z-10 hidden md:block group'
+              className='absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 rounded-full shadow-lg transition-all duration-200 z-10 hidden md:flex items-center justify-center'
               style={{
-                marginRight: '-20px',
+                right: '-20px',
+                width: '48px',
+                height: '48px',
+                border: 'none',
+                cursor: 'pointer',
               }}
+              aria-label='Next'
             >
-              <IoChevronForward className='w-6 h-6 text-orange-500 group-hover:text-white' />
+              <IoChevronForward className='w-6 h-6 text-white' />
             </button>
           )}
         </div>
