@@ -11,6 +11,7 @@ import PromoCarousel from '@/components/PromoCarousel';
 import ExtraordinaryCarousel from '@/components/ExtraordinaryCarousel';
 import WeOfferTheBest from '@/components/WeOfferTheBest';
 import HowItWorks from '@/components/HowItWorks';
+import TopBudgetFriendlyHotels from '@/components/TopBudgetFriendlyHotels';
 import NewsletterSection from '@/components/NewsletterSection';
 import ExploreWorld from '@/components/ExploreWorld';
 import FAQSection from '@/components/sections/FAQ/FAQSection';
@@ -867,6 +868,9 @@ export default function Home() {
 
           {/* How It Works Section */}
           <HowItWorks />
+
+          {/* Top Budget-Friendly Hotels Section */}
+          <TopBudgetFriendlyHotels />
 
           {/* Newsletter Section */}
           <NewsletterSection />
