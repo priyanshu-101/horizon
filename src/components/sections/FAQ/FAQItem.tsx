@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 interface FAQItemProps {
   question: string;
-  answer?: string;
+  answer?: string | undefined;
 }
 
 export default function FAQItem({ question, answer }: FAQItemProps) {
