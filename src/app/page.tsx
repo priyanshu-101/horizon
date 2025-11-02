@@ -130,7 +130,7 @@ export default function Home() {
       style={{
         backgroundColor: '#F2F4F6',
         minHeight: isMobile ? '100vh' : '100vh',
-        borderRadius: isMobile ? '20px' : '0',
+        borderRadius: '0',
         overflow: isMobile ? 'hidden' : 'visible',
         margin: isMobile ? '10px' : '0',
         maxWidth: isMobile ? 'calc(100vw - 20px)' : '100%',
@@ -156,7 +156,7 @@ export default function Home() {
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             zIndex: 0,
-            borderRadius: '20px 20px 0 0',
+            borderRadius: '0',
           }}
         />
       ) : (
@@ -187,7 +187,7 @@ export default function Home() {
             right: '0',
             bottom: '0',
             zIndex: 1,
-            borderRadius: '20px 20px 0 0',
+            borderRadius: '0',
             background:
               'linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.4) 70%, rgba(255, 255, 255, 0.6) 100%)',
             backdropFilter: 'blur(0.2px)',

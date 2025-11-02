@@ -491,9 +491,7 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
       <div 
         className='w-full relative' 
         style={{ 
-          borderRadius: '16px 16px 20px 20px',
-          borderTopLeftRadius: '16px',
-          borderTopRightRadius: '16px',
+          borderRadius: '0',
           overflow: 'hidden',
           paddingLeft: '16px',
           paddingRight: '16px',
@@ -509,7 +507,7 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             zIndex: 0,
-            borderRadius: '16px 16px 20px 20px',
+            borderRadius: '0',
           }}
         />
         {/* Background Overlay */}
@@ -519,7 +517,7 @@ export default function BookingForm({ showTabsOnly = false }: BookingFormProps) 
             background: 'linear-gradient(to bottom, rgba(206, 221, 231, 0.6) 0%, rgba(206, 221, 231, 0.8) 100%)',
             backdropFilter: 'blur(0.2px)',
             zIndex: 1,
-            borderRadius: '16px 16px 20px 20px',
+            borderRadius: '0',
             pointerEvents: 'none',
           }}
         />
