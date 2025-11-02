@@ -7,6 +7,7 @@ import { gilroyBold } from '@/lib/fonts';
 import BookingForm from '@/components/BookingForm';
 import FlatOffer from '@/components/FlatOffer';
 import DealsAndOffers from '@/components/DealsAndOffers';
+import PromoCarousel from '@/components/PromoCarousel';
 import ExploreWorld from '@/components/ExploreWorld';
 import FAQSection from '@/components/sections/FAQ/FAQSection';
 import GallerySection from '@/components/sections/FAQ/GallerySection';
@@ -850,6 +851,9 @@ export default function Home() {
 
           {/* Deals and Offers Section */}
           <DealsAndOffers />
+
+          {/* Promo Carousel Section */}
+          <PromoCarousel />
 
           {/* Phoenix Fly Blogs Section */}
           <PhoenixFlyBlogsSection />
